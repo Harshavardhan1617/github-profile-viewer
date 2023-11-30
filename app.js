@@ -29,8 +29,9 @@ const gitRequestUser = async(usr) => {
     }
 } 
 
-const testFunction = (str) => {
-    console.log(str)
+const gitRequestRepos = async(usr) =>{
+    const res = await fetch(`https://api.github.com/users/${usr}/repos`)
+    const data = res.json()
 }
 
 let element = ""
