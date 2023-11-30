@@ -1,4 +1,4 @@
-const domObjects = ["form", "submit", "username", "userInfo", "avatar", "bio", "repoLink", "location", "twitterHandle"]
+const domObjects = ["form", "submit", "username", "avatar", "bio", "displayUsername", "userLink", "location", "twitterHandle"]
 
 const arrMap = domObjects.map((dom) => {
     return document.querySelector(`#${dom}`)
@@ -10,21 +10,23 @@ arrMap[0].addEventListener('submit', (e) => {
     gitRequestUser(userName)
 })
 
-
-
 const gitRequestUser = async(usr) => {
     try {
         const res = await fetch(`https://api.github.com/users/${usr}`)
         const data = await res.json()
-        // console.log(data)
-        const dp = createGeneric("img", data.avatar_url)
-        arrMap[4].append(dp)
+        const displayImg = createGeneric("img", data.avatar_url)
+        arrMap[3].append(displayImg)
+        arrMap[6].append(createGeneric("a", data.html_url, data.html_url))
+        arrMap[4].append(createGeneric("p", data.bio))
+        arrMap[5].append(createGeneric("p", data.name))
+        arrMap[7].append(createGeneric("p", data.location))
+        if(data.twitter_username){
+            const twitterHandle = `https://twitter.com/${data.twitter_username}`
+            arrMap[8].append(createGeneric("a", `Twitter: ${twitterHandle}`, twitterHandle))
+        }
     } catch (error) {
         console.log(error)
     }
- 
-
-
 } 
 
 const testFunction = (str) => {
@@ -42,16 +44,14 @@ const createGeneric = (ele, text, link) => {
         element = document.createElement('A')
         element.innerText = text
         element.href = link
-        // console.log(element)
+        return element
     }
     else{
         element = document.createElement(`${ele}`)
         element.innerText = text
-        // console.log(element)
+        return element
     }
     
     
 }
-
-
 
