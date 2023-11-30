@@ -7,16 +7,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>hey</h1>
-    <form action="/source">
-        <input type="text" name="username" id="username" placeholder="username">
-        <button type="submit" id="submit">Submit</button>   
-    
+    <h1>Github User Search</h1>
+    <form action="/source" id="form">
+        <input type="text" id="username" name="username" placeholder="username">
+        <button type="submit" id="submit">Submit</button>
     </form>
-
-    <ul id="userinfo">
-        <li><img id="avatar" src="" alt="profilepic"></li>
-    </ul>
+    <div id="userInfo">
+        <div id="avatar"></div>
+        <div id="repoLink"></div>
+        <div id="displayUsername"></div>
+        <div id="bio"></div>
+        <div id="location"></div>
+        <div id="twitterHandle"></div>
+        
+    </div>
 
 
 
