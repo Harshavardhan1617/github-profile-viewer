@@ -8,6 +8,7 @@ arrMap[0].addEventListener('submit', (e) => {
     e.preventDefault()
     const userName = arrMap[2].value
     gitRequestUser(userName)
+    gitRequestRepos(userName) 
 })
 
 const gitRequestUser = async(usr) => {
@@ -24,6 +25,7 @@ const gitRequestUser = async(usr) => {
             const twitterHandle = `https://twitter.com/${data.twitter_username}`
             arrMap[8].append(createGeneric("a", `Twitter: ${twitterHandle}`, twitterHandle))
         }
+        document.querySelector('.userSection').classList.toggle("none")
     } catch (error) {
         console.log(error)
     }
@@ -31,7 +33,13 @@ const gitRequestUser = async(usr) => {
 
 const gitRequestRepos = async(usr) =>{
     const res = await fetch(`https://api.github.com/users/${usr}/repos`)
-    const data = res.json()
+    const data = await res.json()
+    const repoSection = document.createElement('div')
+    repoSection.classList.add("repoSection")
+    document.querySelector('#bottom').append(repoSection)
+    const repoName = document.createElement("div")
+    repoName.id = "repoName"
+    const h2 = createGeneric(data[6].name)
 }
 
 let element = ""

@@ -17,3 +17,33 @@
     border: solid 2px grey;
     padding: 16px;
 }
+
+.bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.repoSection {
+    width: 20vw;
+    border: solid 2px rebeccapurple;
+    margin: 20px;
+}
+
+.topics li{
+    border: solid darkblue 2px;
+    display: inline-block;
+    padding: 2px 8px;
+}
+
+#repoName h2{
+    margin: 8px
+}
+
+#description {
+    padding: 0px 20px;
+}
+
+.none {
+    display: none;
+}

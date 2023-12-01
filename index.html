@@ -7,27 +7,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="header">
-        <h1>Github User Search</h1>
-        <form action="/source" id="form">
-            <input type="text" id="username" name="username" placeholder="username">
-            <button type="submit" id="submit">Submit</button>
-        </form>
-    </div>
-    <div class="userSection">
-        <div id="avatar"></div>
-        <div class="userInfo">
-            <div id="userLink"></div>
-            <div id="bio"></div>
-            <div id="displayUsername"></div>
-            <div id="location"></div>
-            <div id="twitterHandle"></div>
+    <section class="top">
+        <div class="header">
+            <h1>Github User Search</h1>
+            <form action="/source" id="form">
+                <input type="text" id="username" name="username" placeholder="username">
+                <button type="submit" id="submit">Submit</button>
+            </form>
         </div>
-    </div>
-
-
-
-
+    </section>
+    <section class="middle">
+        <div class="userSection none">
+            <div id="avatar"></div>
+            <div class="userInfo">
+                <div id="userLink"></div>
+                <div id="bio"></div>
+                <div id="displayUsername"></div>
+                <div id="location"></div>
+                <div id="twitterHandle"></div>
+            </div>
+        </div>
+    </section>
+    <section id="bottom">
+        <div class= "repoSection">
+            <div id="repoName">
+            </div>
+            <div id="description">
+            </div>
+            <div id="topics">
+                <ul id="topics">
+                </ul>
+            </div>
+        </div>
+    </section>
     <script src="app.js"></script>
 </body>
 </html>
