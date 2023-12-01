@@ -34,12 +34,25 @@ const gitRequestUser = async(usr) => {
 const gitRequestRepos = async(usr) =>{
     const res = await fetch(`https://api.github.com/users/${usr}/repos`)
     const data = await res.json()
-    const repoSection = document.createElement('div')
-    repoSection.classList.add("repoSection")
-    document.querySelector('#bottom').append(repoSection)
-    const repoName = document.createElement("div")
-    repoName.id = "repoName"
-    const h2 = createGeneric(data[6].name)
+    for (let i=0; i<data.length; i++){
+        const repoSection = document.createElement('DIV')
+        repoSection.classList.add("repoSection")
+        document.querySelector('#bottom').append(repoSection)
+        const repoName = document.createElement("DIV")
+        repoName.classList.add("repoName")
+        repoName.append(createGeneric("h2", data[i].name))
+        repoSection.append(repoName)
+        const description = document.createElement('DIV')
+        description.classList.add("description")
+        description.append(createGeneric("p", data[i].description))
+        repoSection.append(description)
+        const topicsList = document.createElement("UL")
+        for (let j=0; j<data[i].topics.length; j++){
+            topicsList.append(createGeneric("li", data[i].topics[j]))
+        }
+        repoSection.append(topicsList)
+    }
+
 }
 
 let element = ""

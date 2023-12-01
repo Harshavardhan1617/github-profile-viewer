@@ -18,30 +18,42 @@
     padding: 16px;
 }
 
-.bottom {
+#bottom {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+
 }
 
 .repoSection {
+    display: flex;
+    flex-direction: column;
     width: 20vw;
     border: solid 2px rebeccapurple;
+    border-radius: 6px;
     margin: 20px;
 }
 
-.topics li{
+ul {
+    marker: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-bottom: 12px;
+    margin-top: 0px;
+}
+
+li{
     border: solid darkblue 2px;
     display: inline-block;
     padding: 2px 8px;
 }
 
-#repoName h2{
+.repoName h2{
     margin: 8px
 }
 
-#description {
-    padding: 0px 20px;
+.description {
+    padding: 0px 10px;
 }
 
 .none {
